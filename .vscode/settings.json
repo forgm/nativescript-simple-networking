@@ -1,0 +1,19 @@
+{
+    "eslint.enable": false,
+    "jshint.enable": false,
+    "NativescriptExtend.fileAssociations": [
+        {
+            "systemId": "/Users/forgm/Documents/GitHub/NativeScript-Plugins/nativescript-simple-networking/schema/tns.xsd",
+            "pattern": "**/**/*.xml"
+        },
+        {
+            "systemId": "http://www.w3.org/2001/XMLSchema.xsd",
+            "pattern": "/Users/forgm/Documents/GitHub/NativeScript-Plugins/nativescript-simple-networking/schema/tns.xsd"
+        }
+    ],
+    "files.exclude": {
+        "schema": true
+    },
+    "NativescriptExtend.format.enabled": true,
+    "NativescriptExtend.validation.enabled": true
+}

@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.nio.charset.Charset;
 
 public class TcpClient {
     private TcpClientListener mListener;
@@ -74,7 +75,7 @@ public class TcpClient {
             @Override
             public void run() {
                 try {
-                    mSocket.getOutputStream().write(data.getBytes());
+                    mSocket.getOutputStream().write(data.getBytes(Charset.forName("ISO_8859_1")));
                     mListener.onFinished(id);
                 } catch (IOException e) {
                     mListener.onError(id, e.getMessage());
@@ -92,7 +93,7 @@ public class TcpClient {
                 try {
                     int size = mSocket.getInputStream().read(mBuffer);
                     byte [] sub = Arrays.copyOfRange(mBuffer, 0, size);
-                    String data = new String(sub);
+                    String data = new String(sub,"ISO_8859_1");
                     mListener.onData(data);
                 } catch (IOException e) {
                     mListener.onError(id, e.getMessage());

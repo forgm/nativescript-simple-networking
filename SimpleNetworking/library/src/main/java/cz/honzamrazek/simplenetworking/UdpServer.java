@@ -40,6 +40,7 @@ public class UdpServer {
             public void run() {
                 try {
                     mSocket = new DatagramSocket(port);
+                    mSocket.setSoTimeout(5000);
                     mExecutor.submit(new Runnable() {
                         @Override
                         public void run() {
